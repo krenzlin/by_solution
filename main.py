@@ -7,11 +7,31 @@ import requests
 
 
 def url_to_path(url):
+    """Convert URI to a path that can be stored on the file system.
+
+    E.g. https://www.python.org/logo.gif -> https_www.python.org/logo.gif
+
+    Args:
+        url (str): URI
+
+    Returns:
+        str:
+    """
     parsed = urlparse(url)
     return '{}_{}{}'.format(parsed.scheme, parsed.netloc, parsed.path)
 
 
 def fetch_url(url):
+    """Return content of url or None if connection failed.
+
+    No check is done.
+
+    Args:
+        url (str):
+
+    Returns:
+        bytes or None:
+    """
     try:
         r = requests.get(url)
     except requests.exceptions.ConnectionError:
@@ -21,6 +41,12 @@ def fetch_url(url):
 
 
 def save_to_file(data, file_path):
+    """
+
+    Args:
+        data (bytes):
+        file_path (str):
+    """
     path = Path(file_path)
 
     # mkdir -p (if not exists)
@@ -35,6 +61,12 @@ def save_to_file(data, file_path):
 
 
 def download(url, file_path):
+    """
+
+    Args:
+        url (str):
+        file_path (str):
+    """
     data = fetch_url(url)
     if data:
         save_to_file(data=data, file_path=file_path)

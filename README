@@ -16,10 +16,29 @@ modified later on by other developers, and so on.
 Please use the Python programming language for your solution.
 
 
+## DEPENDENCIES
+
+Needs Python3 (tested on py35)
+
+- click
+- requests
+
+For testing
+
+- pytest
+
+## EXAMPLE RUN
+
+see --help
+
+$ python3.5 main.py example.txt download --verbose
+
+
 ## IMPORTANT
 
-This solution does not take into account or checks for
+This solution does not try to solve or checks for
 
-* network issues
-* server responses, e.g. 404
-* url's that do not point to images
+* server/network issues apart from requests ConnectionError
+* URLs that do not point to images
+* URLs that cannot be mapped to file system paths
+* parallelisation of downloads
