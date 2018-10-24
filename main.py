@@ -1,3 +1,4 @@
+import logging
 from urllib.parse import urlparse
 from pathlib import Path
 
@@ -14,7 +15,7 @@ def fetch_url(url):
     try:
         r = requests.get(url)
     except requests.exceptions.ConnectionError:
-        print('Connection error')
+        logging.warning('connection error: %s', url)
         return None
     return r.content
 
@@ -42,12 +43,16 @@ def download(url, file_path):
 @click.command()
 @click.argument('inputfile', type=click.File())
 @click.argument('savedir')
-def main(inputfile, savedir):
+@click.option('--verbose', is_flag=True)
+def main(inputfile, savedir, verbose):
+    if verbose:
+        logging.basicConfig(level=logging.INFO)
+
     for line in inputfile:
         url = line.strip()
         if url:
             path = Path(savedir) / url_to_path(url)
-            print(url, path)
+            logging.info('downloading: %s', url)
             download(url, str(path))
 
 
