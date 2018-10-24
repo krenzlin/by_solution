@@ -37,6 +37,9 @@ def fetch_url(url):
     except requests.exceptions.ConnectionError:
         logging.warning('connection error: %s', url)
         return None
+    except requests.exceptions.MissingSchema:
+        logging.warning('invalid url: %s', url)
+        return None
     return r.content
 
 

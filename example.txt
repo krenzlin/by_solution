@@ -3,3 +3,7 @@ http://mywebserver.com/images/24174.jpg
 
  http://somewebsrv.com/img/992147.jpg
 
+Text that should not be here
+
+mr.foo.bar/image.gif
+

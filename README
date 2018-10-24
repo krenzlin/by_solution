@@ -38,7 +38,7 @@ $ python3.5 main.py example.txt download --verbose
 
 This solution does not try to solve or checks for
 
-* server/network issues apart from requests ConnectionError
+* server/network issues apart from requests ConnectionError, MissingSchema
 * URLs that do not point to images
 * URLs that cannot be mapped to file system paths
 * parallelisation of downloads
