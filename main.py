@@ -11,7 +11,11 @@ def url_to_path(url):
 
 
 def fetch_url(url):
-    r = requests.get(url)
+    try:
+        r = requests.get(url)
+    except requests.exceptions.ConnectionError:
+        print('Connection error')
+        return None
     return r.content
 
 
