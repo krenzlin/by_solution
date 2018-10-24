@@ -1,5 +1,12 @@
+from urllib.parse import urlparse
+
 import click
 import requests
+
+
+def url_to_path(url):
+    parsed = urlparse(url)
+    return '{}_{}{}'.format(parsed.scheme, parsed.netloc, parsed.path)
 
 
 def download(url, filename):
