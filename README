@@ -1,3 +1,6 @@
+# author: konrad
+# date: 2018-10-24
+
 ## Solution to the following exercise
 
 Given a plaintext file containing URLs, one per line, e.g.:
@@ -33,6 +36,10 @@ see --help
 
 $ python3.5 main.py example.txt download --verbose
 
+
+## TEST AND COVERAGE
+
+$ tox
 
 ## IMPORTANT
 
