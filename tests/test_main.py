@@ -2,11 +2,10 @@ def test_download(tmpdir):
     from main import download
 
     url = 'https://www.python.org/static/img/python-logo.png'
+    tmp_file = tmpdir / 'python-logo.png'
 
-    filename = tmpdir / 'python-logo.png'
+    assert tmp_file.isfile() is False
 
-    assert filename.exits() is False
+    download(url, str(tmp_file))
 
-    download(url, filename)
-
-    assert filename.exits() is True
+    assert tmp_file.isfile() is True
