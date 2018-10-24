@@ -11,6 +11,8 @@ def url_to_path(url):
 
     E.g. https://www.python.org/logo.gif -> https_www.python.org/logo.gif
 
+    Note: www.python.org is not a valid URL!!
+
     Args:
         url (str): URI
 
