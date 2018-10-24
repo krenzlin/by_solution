@@ -11,8 +11,6 @@ def url_to_path(url):
 
     E.g. https://www.python.org/logo.gif -> https_www.python.org/logo.gif
 
-    Note: www.python.org is not a valid URL!!
-
     Args:
         url (str): URI
 
@@ -24,9 +22,9 @@ def url_to_path(url):
 
 
 def fetch_url(url):
-    """Return content of url or None if connection failed.
+    """Return content of url or None if connection failed or URL is invalid.
 
-    No check is done.
+    Note: www.python.org is not a valid URL and will return None
 
     Args:
         url (str):

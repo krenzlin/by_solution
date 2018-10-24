@@ -39,6 +39,8 @@ $ python3.5 main.py example.txt download --verbose
 
 ## TEST AND COVERAGE
 
+Important: Tests hit the network!! Nothing is mocked.
+
 $ tox
 
 ## IMPORTANT
@@ -46,6 +48,6 @@ $ tox
 This solution does not try to solve or checks for
 
 * server/network issues apart from requests ConnectionError, MissingSchema
-* URLs that do not point to images
+* URLs that do not point to images (in the example it downloads the HTML files)
 * URLs that cannot be mapped to file system paths
 * parallelisation of downloads
